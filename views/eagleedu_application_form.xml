@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eagleedu_application_form" model="ir.ui.view">
+        <field name="model">eagleedu.application</field>
+        <field name="arch" type="xml">
+               <form>
+                   <sheet>
+                       <group>
+                        <field name="application_no"/>
+
+                        <field name="application_date"/>
+
+                        <field name="stu_name"/>
+                        <field name="stu_name_b"/>
+                        <field name="date_of_birth"/>
+                        <field name="gender"/>
+                        <field name="nationality"/>
+                        </group>
+
+                       <group>
+                        <field name="stu_father_name"/>
+                        <field name="stu_father_name_b"/>
+                        <field name="father_mobile"/>
+                        <field name="stu_mother_name"/>
+                        <field name="stu_mother_name_b"/>
+                        <field name="mother_mobile"/>
+                        <field name="guardian_name"/>
+
+                       </group>
+                    </sheet>
+               </form>
+        </field>
+    </record>
+
+
+
+     <record id="action_eagleedu_application" model="ir.actions.act_window">
+        <field name="name">Student Application</field>
+        <field name="res_model">eagleedu.application</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create the your first student application here.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            name="Eagle Education"
+            id="eagleedu_parent_menu_id"/>
+    <menuitem
+            name="Student Application"
+            parent="eagleedu_parent_menu_id"
+            action="action_eagleedu_application"
+            id="eagleedu_application_menu_id"/>
+
+
+
+
+
+
+</odoo>
