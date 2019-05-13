@@ -2,11 +2,15 @@ from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 from datetime import datetime
 
-class EagleeduStudentApplication(models.Model):
+class EagleeduApplication(models.Model):
     _name = 'eagleedu.application'
     #_inherit = ['mail.thread']
     _description = 'Applications for the admission'
     _order = 'id desc'
+
+    eagleedu_application_no = fields.Char(string='Student Application No', required=True, copy=False, readonly=True,
+                       index=True, default=lambda self: _('New'))
+
 
     application_date = fields.Datetime('application Date', default=lambda
         self: fields.datetime.now())  # , default=fields.Datetime.now, required=True
@@ -46,17 +50,13 @@ class EagleeduStudentApplication(models.Model):
                                    help="Select the State where you are from")
     per_country_id = fields.Many2one('res.country', string='Country', ondelete='restrict',default=19,
                                      help="Select the Country")
-    guardian_name = fields.Char(string="guardian's Name", help="Proud to say my guardian is")
-    application_no = fields.Char(string='Application  No', required=True, copy=False, readonly=True,
-                       index=True, default=lambda self: _('New'))
+    guardian_name = fields.Char(string="Guardian's Name", help="Proud to say my guardian is")
 
 
     @api.model
     def create(self, vals):
         """Overriding the create method and assigning the the sequence for the record"""
-        if vals.get('application_no', _('New')) == _('New'):
-            vals['application_no'] = self.env['ir.sequence'].next_by_code('eagleedu.application') or _('New')
-        res = super(EagleeduStudentApplication, self).create(vals)
+        if vals.get('eagleedu_application_no', _('New')) == _('New'):
+            vals['eagleedu_application_no'] = self.env['ir.sequence'].next_by_code('eagleedu.application') or _('New')
+        res = super(EagleeduApplication, self).create(vals)
         return res
-
-

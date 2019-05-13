@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_eagleedu_application_form" model="ir.ui.view">
+        <field name="name">eagleedu.application.form</field>
         <field name="model">eagleedu.application</field>
         <field name="arch" type="xml">
                <form>
                    <sheet>
                        <group>
-                        <field name="application_no"/>
-
+                        <field name="eagleedu_application_no"/>
                         <field name="application_date"/>
-
                         <field name="stu_name"/>
                         <field name="stu_name_b"/>
                         <field name="date_of_birth"/>
@@ -33,13 +32,32 @@
     </record>
 
 
+    <record id="view_eagleedu_application_tree" model="ir.ui.view">
+        <field name="name">eagleedu.application.tree</field>
+        <field name="model">eagleedu.application</field>
+        <field name="arch" type="xml">
+               <tree string="Student Application">
+                        <field name="eagleedu_application_no"/>
+                        <field name="application_date"/>
+                        <field name="stu_name"/>
+                        <field name="date_of_birth"/>
+                        <field name="gender"/>
+                        <field name="stu_father_name"/>
+                        <field name="father_mobile"/>
+                        <field name="stu_mother_name"/>
+                        <field name="guardian_name"/>
+
+               </tree>
+        </field>
+    </record>
+
 
      <record id="action_eagleedu_application" model="ir.actions.act_window">
         <field name="name">Student Application</field>
-        <field name="res_model">eagleedu.application</field>
+        <field name="model">eagleedu.application</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_type">form</field>
-        <field name="view_mode">form</field>
+        <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Create the your first student application here.
@@ -47,18 +65,21 @@
         </field>
     </record>
 
+
+
+ <!--for emplement menu items
+
+ <menuitem id="menu_education_student" name="Student" sequence="10"
+              parent="menu_education_admission" action="action_student"/>-->
+
+
+
     <menuitem
-            name="Eagle Education"
-            id="eagleedu_parent_menu_id"/>
+            id="eagleedu_parent_menu_id" name="Eagle Education" sequence="10"/>
+
     <menuitem
-            name="Student Application"
-            parent="eagleedu_parent_menu_id"
-            action="action_eagleedu_application"
-            id="eagleedu_application_menu_id"/>
-
-
-
-
+            id="eagleedu_application_menu_id" name="Student Application"
+            parent="eagleedu_parent_menu_id" action="action_eagleedu_application" />
 
 
 </odoo>
