@@ -5,11 +5,9 @@ from datetime import datetime
 class EagleeduApplication(models.Model):
     _name = 'eagleedu.application'
     #_inherit = ['mail.thread']
-    _description = 'Applications for the admission'
-    _order = 'id desc'
+    # _description = 'Applications for the admission'
+    # _order = 'id desc'
 
-    eagleedu_application_no = fields.Char(string='Student Application No', required=True, copy=False, readonly=True,
-                       index=True, default=lambda self: _('New'))
 
 
     application_date = fields.Datetime('application Date', default=lambda
@@ -52,11 +50,14 @@ class EagleeduApplication(models.Model):
                                      help="Select the Country")
     guardian_name = fields.Char(string="Guardian's Name", help="Proud to say my guardian is")
 
+    eagleedu_application_no = fields.Char(string='Application No', required=True, copy=False, readonly=True,
+                       index=True, default=lambda self: _('New'))
 
     @api.model
     def create(self, vals):
-        """Overriding the create method and assigning the the sequence for the record"""
-        if vals.get('eagleedu_application_no', _('New')) == _('New'):
-            vals['eagleedu_application_no'] = self.env['ir.sequence'].next_by_code('eagleedu.application') or _('New')
-        res = super(EagleeduApplication, self).create(vals)
-        return res
+    #     """Overriding the create method and assigning the the sequence for the record"""
+         if vals.get('eagleedu.application', _('New')) == _('New'):
+            vals['eagleedu_application_no'] = self.env['ir.sequence'].next_by_code('seq.eagleedu.application') or _('New')
+         res = super(EagleeduApplication, self).create(vals)
+         return res
+

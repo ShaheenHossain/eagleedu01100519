@@ -4,7 +4,32 @@
         <field name="name">eagleedu.application.form</field>
         <field name="model">eagleedu.application</field>
         <field name="arch" type="xml">
-               <form>
+               <form string="Student Application">
+
+<!--                   <header>-->
+<!--                     <button name="send_to_verify" type="object" class="oe_highlight"-->
+<!--                            string="Send for Verification" groups="base.group_user"-->
+<!--                            help="Click to send the application for verification purpose"-->
+<!--                            states="draft"/>-->
+<!--                     <button name="application_verify" type="object" class="oe_highlight"-->
+<!--                            string="Verify Application" groups="base.group_user"-->
+<!--                            help="Click to verify the application and documents"-->
+<!--                            states="verification"/>-->
+<!--                     <button name="create_student" string="Create Student"-->
+<!--                                type="object" class="oe_highlight"-->
+<!--                                help="Click to create Student"-->
+<!--                                states="approve"/>-->
+
+<!--                     <button name="%(education_core.application_reject_action)d" string="Reject"-->
+<!--                                type="action"-->
+<!--                                context="{'default_application_id': active_id}"-->
+<!--                                states="approve"/>-->
+
+
+<!--                    <field name="state" widget="statusbar" statusbar_visible="draft,verify,approve,done"/>- -->
+<!--                 </header>-->
+
+
                    <sheet>
                        <group>
                         <field name="eagleedu_application_no"/>
