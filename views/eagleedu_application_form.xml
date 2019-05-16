@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
                <form string="Student Application">
 
-<!--                   <header>-->
+                 <header>
 <!--                     <button name="send_to_verify" type="object" class="oe_highlight"-->
 <!--                            string="Send for Verification" groups="base.group_user"-->
 <!--                            help="Click to send the application for verification purpose"-->
@@ -26,16 +26,47 @@
 <!--                                states="approve"/>-->
 
 
-<!--                    <field name="state" widget="statusbar" statusbar_visible="draft,verify,approve,done"/>- -->
-<!--                 </header>-->
+<!--                    <field name="state" widget="statusbar" statusbar_visible="draft,verify,approve,done"/>-->
+                 </header>
 
 
                    <sheet>
+
+
+                    <field name="stu_image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_large&quot;, &quot;size&quot;: [120, 120]}"/>
+                    <div class="oe_title">
+                        <h2>
+                            <field name="stu_name" placeholder="Student Name in English All CAPITAL LETTER" style="color:#7589fc" required="1"/>
+                            <field name="stu_name_b" placeholder="বাংলায় শিক্ষার্থীর নাম" style="color: #7589fc"/>
+
+                        </h2>
+                    </div>
+
+<!--                        <field name="stu_image" widget="image" class="oe_left oe_avatar" />
+                       <div >
+                        <h3><field name="eagleedu_application_no"/></h3>
+                        <h4>
+                            <table>
+                                <tr>
+                                    <td style="padding-right:10px;"><field name="stu_name" placeholder="Student Name" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-right:10px;"><field name="stu_name_b" placeholder="নাম (বাংলায়)" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/></td>
+                                </tr>
+                            </table>
+                        </h4>
+                        <group>
+                            <field name="already_student"/>
+                            <field name="student_id" attrs="{'invisible':[('already_student','=',False)]}"/>
+                         </group>
+                    </div> -->
+
+
+
+
                        <group>
                         <field name="eagleedu_application_no"/>
                         <field name="application_date"/>
-                        <field name="stu_name"/>
-                        <field name="stu_name_b"/>
                         <field name="date_of_birth"/>
                         <field name="gender"/>
                         <field name="nationality"/>

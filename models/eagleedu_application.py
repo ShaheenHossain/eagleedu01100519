@@ -9,13 +9,13 @@ class EagleeduApplication(models.Model):
     # _order = 'id desc'
 
 
-
     application_date = fields.Datetime('application Date', default=lambda
         self: fields.datetime.now())  # , default=fields.Datetime.now, required=True
 
     stu_name = fields.Char(string='Student Name', required=True, help="Enter Name of Student")
+
     stu_name_b = fields.Char(string='Student Bangla Name')
-    image = fields.Binary(string='Image', help="Provide the image of the Student")
+    stu_image = fields.Binary(string='Image', help="Provide the image of the Student")
     stu_father_name = fields.Char(string="Father's Name", help="Proud to say my father is", required=True)
     stu_father_name_b = fields.Char(string="বাবার নাম", help="Proud to say my father is")
     father_mobile = fields.Char(string="Father's Mobile No", help="Father's Mobile No")
