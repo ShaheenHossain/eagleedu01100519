@@ -4,6 +4,8 @@ from datetime import datetime
 
 class EagleeduApplication(models.Model):
     _name = 'eagleedu.application'
+
+    #_inherit = 'res.partner'
     #_inherit = ['mail.thread']
     # _description = 'Applications for the admission'
     # _order = 'id desc'
@@ -13,7 +15,6 @@ class EagleeduApplication(models.Model):
         self: fields.datetime.now())  # , default=fields.Datetime.now, required=True
 
     stu_name = fields.Char(string='Student Name', required=True, help="Enter Name of Student")
-
     stu_name_b = fields.Char(string='Student Bangla Name')
     stu_image = fields.Binary(string='Image', help="Provide the image of the Student")
     stu_father_name = fields.Char(string="Father's Name", help="Proud to say my father is", required=True)
@@ -50,8 +51,15 @@ class EagleeduApplication(models.Model):
                                      help="Select the Country")
     guardian_name = fields.Char(string="Guardian's Name", help="Proud to say my guardian is")
 
+    religious_id = fields.Many2one('eagleedu.religious', string="Religious", help="My Religion is ")
+
+
+
     eagleedu_application_no = fields.Char(string='Application No', required=True, copy=False, readonly=True,
                        index=True, default=lambda self: _('New'))
+
+
+
 
     @api.model
     def create(self, vals):
@@ -61,3 +69,6 @@ class EagleeduApplication(models.Model):
          res = super(EagleeduApplication, self).create(vals)
          return res
 
+class EagleeduReligious(models.Model):
+        _name = 'eagleedu.religious'
+        name = fields.Char()

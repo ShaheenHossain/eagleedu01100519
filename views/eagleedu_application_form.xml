@@ -31,48 +31,27 @@
 
 
                    <sheet>
-
-
                     <field name="stu_image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_large&quot;, &quot;size&quot;: [120, 120]}"/>
-                    <div class="oe_title">
-                        <h2>
-                            <field name="stu_name" placeholder="Student Name in English All CAPITAL LETTER" style="color:#7589fc" required="1"/>
-                            <field name="stu_name_b" placeholder="বাংলায় শিক্ষার্থীর নাম" style="color: #7589fc"/>
+                        <div col="8" class = "oe_title">
+                            <h3>
+                                <group>
+                                <field name="stu_name" placeholder="Student Name English (CAPITAL LETTER)" style="color:#7589fc" required="1"/>
+                                <field name="stu_name_b" placeholder="বাংলায় শিক্ষার্থীর নাম" style="color: #7589fc"/>
+                                </group>
+                            </h3>
+                        </div>
 
-                        </h2>
-                    </div>
-
-<!--                        <field name="stu_image" widget="image" class="oe_left oe_avatar" />
-                       <div >
-                        <h3><field name="eagleedu_application_no"/></h3>
-                        <h4>
-                            <table>
-                                <tr>
-                                    <td style="padding-right:10px;"><field name="stu_name" placeholder="Student Name" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-right:10px;"><field name="stu_name_b" placeholder="নাম (বাংলায়)" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/></td>
-                                </tr>
-                            </table>
-                        </h4>
-                        <group>
-                            <field name="already_student"/>
-                            <field name="student_id" attrs="{'invisible':[('already_student','=',False)]}"/>
-                         </group>
-                    </div> -->
-
-
-
-
-                       <group>
-                        <field name="eagleedu_application_no"/>
+                       <group  string="Personal Details">
+                        <field name="eagleedu_application_no" />
                         <field name="application_date"/>
                         <field name="date_of_birth"/>
                         <field name="gender"/>
                         <field name="nationality"/>
+                        <field name="religious_id"/>
+
                         </group>
 
-                       <group>
+                       <group col="4" string="Parent Details">
                         <field name="stu_father_name"/>
                         <field name="stu_father_name_b"/>
                         <field name="father_mobile"/>
