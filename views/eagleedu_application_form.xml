@@ -4,7 +4,7 @@
         <field name="name">eagleedu.application.form</field>
         <field name="model">eagleedu.application</field>
         <field name="arch" type="xml">
-               <form string="Student Application">
+               <form string="Application No.">
 
                  <header>
 <!--                     <button name="send_to_verify" type="object" class="oe_highlight"-->
@@ -71,7 +71,7 @@
         <field name="name">eagleedu.application.tree</field>
         <field name="model">eagleedu.application</field>
         <field name="arch" type="xml">
-               <tree string="Student Application">
+               <tree string="Application No.">
                         <field name="eagleedu_application_no"/>
                         <field name="application_date"/>
                         <field name="stu_name"/>

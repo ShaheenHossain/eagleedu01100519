@@ -4,11 +4,14 @@ from datetime import datetime
 
 class EagleeduApplication(models.Model):
     _name = 'eagleedu.application'
+    _description = 'Applications for the admission'
+    _order = 'id desc'
+    # _rec_name = 'name'
+    # _inherit = ['mail.thread']
 
     #_inherit = 'res.partner'
-    #_inherit = ['mail.thread']
-    # _description = 'Applications for the admission'
-    # _order = 'id desc'
+
+
 
 
     application_date = fields.Datetime('application Date', default=lambda
@@ -17,10 +20,10 @@ class EagleeduApplication(models.Model):
     stu_name = fields.Char(string='Student Name', required=True, help="Enter Name of Student")
     stu_name_b = fields.Char(string='Student Bangla Name')
     stu_image = fields.Binary(string='Image', help="Provide the image of the Student")
-    stu_father_name = fields.Char(string="Father's Name", help="Proud to say my father is", required=True)
+    stu_father_name = fields.Char(string="Father's Name", help="Proud to say my father is", required=False)
     stu_father_name_b = fields.Char(string="বাবার নাম", help="Proud to say my father is")
     father_mobile = fields.Char(string="Father's Mobile No", help="Father's Mobile No")
-    stu_mother_name = fields.Char(string="mother's Name", help="Proud to say my mother is",required=True)
+    stu_mother_name = fields.Char(string="Mother's Name", help="Proud to say my mother is", required=False)
     stu_mother_name_b = fields.Char(string="মা এর নাম", help="Proud to say my mother is")
     mother_mobile = fields.Char(string="mother's Mobile No", help="mother's Mobile No")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')],
@@ -55,19 +58,27 @@ class EagleeduApplication(models.Model):
 
 
 
-    eagleedu_application_no = fields.Char(string='Application No', required=True, copy=False, readonly=True,
-                       index=True, default=lambda self: _('New'))
+    #eagleedu_application_no = fields.Char(string='Application No.', copy=False, readonly=True,)
 
-
-
-
+    eagleedu_application_no = fields.Char(string='Application No.', required=True, copy=False, readonly=True,
+                                 index=True, default=lambda self: _('New'))
     @api.model
     def create(self, vals):
     #     """Overriding the create method and assigning the the sequence for the record"""
-         if vals.get('eagleedu.application', _('New')) == _('New'):
-            vals['eagleedu_application_no'] = self.env['ir.sequence'].next_by_code('seq.eagleedu.application') or _('New')
+    #     if vals.get('eagleedu_application_no', _('New')) == _('New'):
+         vals['eagleedu_application_no'] = self.env['ir.sequence'].next_by_code('eagleedu.application') or _('New')
          res = super(EagleeduApplication, self).create(vals)
          return res
+
+    # @api.model
+    # def create(self, vals):
+    #     """Over riding the create method to assign
+    #     the sequence for newly creating records"""
+    #     vals['faculty_id'] = self.env['ir.sequence'].next_by_code('education.faculty')
+    #     res = super(EducationFaculty, self).create(vals)
+    #     return res
+
+
 
 class EagleeduReligious(models.Model):
         _name = 'eagleedu.religious'

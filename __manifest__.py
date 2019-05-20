@@ -8,9 +8,12 @@
     'company': 'Eagle ERP ',
     'website': "http://www.eagle-erp.com",
     'depends': ['base'],
-    'data': ['views/eagleedu_application_form.xml'
+    'data': ['views/eagleedu_application_form.xml',
+             'views/eagleedu_sequene.xml',
+             'report/report_eagleedu_application.xml',
+             'report/print_report.xml',
 
-    ],
+             ],
     'demo': [
         'demo/education_data.xml',
     ],

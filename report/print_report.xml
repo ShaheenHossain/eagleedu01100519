@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+<!--        <record id="eagleedu_paperformat_eagleedu_application" model="print_report.eagleedu_paperformat">
+            <field name="name">Student Application From</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">70</field>
+            <field name="margin_bottom">28</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">50</field>
+            <field name="dpi">90</field>
+        </record>-->
+
+        <report
+            id="action_eagleedu_application_report"
+            model="eagleedu.application"
+            string="Print Student Application"
+            report_type="qweb-pdf"
+            name="eagleedu01.report_eagleedu_application"
+            file="eagleedu01.report_eagleedu_application"
+        />
+
+
+
+<!--        <report-->
+<!--            id="action_exam_marksheet"-->
+<!--            model="education.exam.results"-->
+<!--            string="Print Marksheet"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="education_core.report_exam_marksheet"-->
+<!--            file="education_core.report_exam_marksheet"-->
+<!--        />-->
+
+
+
+    </data>
+
+
+</odoo>
